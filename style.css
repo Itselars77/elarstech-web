@@ -225,6 +225,31 @@ text-align:center;
 margin-top:120px;
 }
 
+.skills{
+text-align:center;
+margin-top:120px;
+}
+
+.skills-container{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.skill-card{
+background:#020617;
+padding:25px;
+border-radius:10px;
+width:200px;
+transition:0.3s;
+}
+
+.skill-card:hover{
+transform:translateY(-10px);
+}
+
 
 h2{
     color:#38bdf8;
