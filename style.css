@@ -2,7 +2,6 @@ html{
     scroll-behavior:smooth;
 }
 
-
 body{
     margin:0;
     font-family: Arial, sans-serif;
@@ -62,8 +61,10 @@ button{
     cursor:pointer;
 }
 
+/* Services */
+
 .services{
-    margin-top:150px;
+    margin-top:120px;
     text-align:center;
 }
 
@@ -77,6 +78,7 @@ button{
     justify-content:center;
     gap:40px;
     margin-top:40px;
+    flex-wrap:wrap;
 }
 
 .service-box{
@@ -84,63 +86,93 @@ button{
     padding:30px;
     border-radius:10px;
     width:220px;
+    transition:0.3s;
 }
 
 .service-box:hover{
     transform:translateY(-10px);
-    transition:0.3s;
 }
 
-/* sidebar */
+/* Sidebar */
 
 .sidebar{
-position:fixed;
-left:-250px;
-top:0;
-width:250px;
-height:100%;
-background:#020617;
-padding:20px;
-transition:0.3s;
+    position:fixed;
+    left:-250px;
+    top:0;
+    width:250px;
+    height:100%;
+    background:#020617;
+    padding:30px;
+    transition:0.3s;
+    z-index:1000;
 }
 
 .sidebar a{
-display:block;
-color:white;
-margin:20px 0;
-text-decoration:none;
+    display:block;
+    margin:20px 0;
+    color:white;
+    text-decoration:none;
 }
 
 .sidebar.active{
-left:0;
+    left:0;
 }
 
-/* menu button */
+/* Menu Button */
 
 .menu-toggle{
-position:fixed;
-top:20px;
-left:20px;
-font-size:24px;
-background:none;
-color:white;
-border:none;
-cursor:pointer;
+    position:fixed;
+    top:25px;
+    left:25px;
+    font-size:28px;
+    background:none;
+    border:none;
+    color:white;
+    cursor:pointer;
+    z-index:1100;
 }
 
-/* contact form */
+/* About */
+
+.about{
+    margin-top:120px;
+    text-align:center;
+    padding:40px;
+}
+
+/* Contact */
+
+.contact{
+    margin-top:120px;
+    text-align:center;
+    padding:40px;
+}
 
 .contact form{
-display:flex;
-flex-direction:column;
-width:300px;
-margin:auto;
-gap:10px;
+    display:flex;
+    flex-direction:column;
+    width:300px;
+    margin:auto;
+    gap:10px;
 }
 
 .contact input,
 .contact textarea{
-padding:10px;
-border-radius:5px;
-border:none;
+    padding:10px;
+    border-radius:5px;
+    border:none;
 }
+
+/* General section spacing */
+
+section{
+    padding:80px 20px;
+}
+
+.service-box{
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+
+h2{
+    color:#38bdf8;
