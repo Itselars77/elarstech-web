@@ -107,16 +107,22 @@ button{
     z-index:1000;
 }
 
-.sidebar a{
-    display:block;
-    margin:20px 0;
-    color:white;
-    text-decoration:none;
+.sidebar{
+position:fixed;
+left:-260px;
+top:0;
+width:260px;
+height:100%;
+background:#020617;
+padding:30px;
+transition:0.3s;
+z-index:2000;
 }
 
 .sidebar.active{
-    left:0;
+left:0;
 }
+
 
 /* Menu Button */
 
@@ -255,5 +261,70 @@ color:#38bdf8;
 font-weight:bold;
 }
 
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+display:none;
+z-index:1500;
+}
+
+.overlay.active{
+display:block;
+}
+
 h2{
     color:#38bdf8;
+}
+
+@media (max-width:768px){
+
+nav{
+padding:15px 20px;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.service-container,
+.project-container,
+.skills-container{
+flex-direction:column;
+align-items:center;
+}
+
+.service-box,
+.project-card,
+.skill-card{
+width:90%;
+}
+
+}
+@media (max-width:768px){
+
+nav{
+padding:15px 20px;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.service-container,
+.project-container,
+.skills-container{
+flex-direction:column;
+align-items:center;
+}
+
+.service-box,
+.project-card,
+.skill-card{
+width:90%;
+}
+
+}
