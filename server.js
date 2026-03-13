@@ -1,13 +1,17 @@
 const express = require("express");
+const path = require("path");
 
 const app = express();
-
-// use Render's port or fallback to 3000 locally
 const PORT = process.env.PORT || 3000;
 
 // serve static files
 app.use(express.static(__dirname));
 
+// send index.html when visiting the homepage
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
