@@ -173,6 +173,43 @@ section{
 box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
+section{
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+
+.projects{
+text-align:center;
+margin-top:120px;
+}
+
+.project-container{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.project-card{
+background:#020617;
+padding:25px;
+border-radius:10px;
+width:240px;
+transition:0.3s;
+}
+
+.project-card:hover{
+transform:translateY(-10px);
+}
+
 
 h2{
     color:#38bdf8;
