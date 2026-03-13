@@ -1,0 +1,92 @@
+html{
+    scroll-behavior:smooth;
+}
+
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#0f172a;
+    color:white;
+}
+
+/* Navbar */
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:#020617;
+}
+
+.logo{
+    color:#38bdf8;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+/* Hero Section */
+
+.hero{
+    text-align:center;
+    margin-top:120px;
+}
+
+.hero h1{
+    font-size:48px;
+    color:#38bdf8;
+}
+
+.hero p{
+    font-size:20px;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 30px;
+    border:none;
+    background:#38bdf8;
+    color:black;
+    font-weight:bold;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.services{
+    margin-top:150px;
+    text-align:center;
+}
+
+.services h2{
+    font-size:36px;
+    color:#38bdf8;
+}
+
+.service-container{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    margin-top:40px;
+}
+
+.service-box{
+    background:#020617;
+    padding:30px;
+    border-radius:10px;
+    width:220px;
+}
+
+.service-box:hover{
+    transform:translateY(-10px);
+    transition:0.3s;
+}
