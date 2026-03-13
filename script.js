@@ -46,3 +46,15 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+
+var typed = new Typed(".typing", {
+strings: [
+"Web Developer",
+"Linux Enthusiast",
+"Problem Solver",
+"Future Tech Entrepreneur"
+],
+typeSpeed: 80,
+backSpeed: 40,
+loop: true
+});
