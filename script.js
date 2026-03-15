@@ -76,7 +76,7 @@ repoContainer.innerHTML = "";
 data.slice(0,6).forEach(repo => {
 
 const repoCard = document.createElement("div");
-repoCard.classList.add("repo-card");
+repoCard.classList.add("card");
 
 repoCard.innerHTML = `
 <h3>${repo.name}</h3>
