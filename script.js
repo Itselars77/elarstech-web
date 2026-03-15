@@ -89,3 +89,25 @@ repoContainer.appendChild(repoCard);
 });
 
 });
+
+const skills = document.querySelectorAll(".skill-level");
+
+const observer = new IntersectionObserver(entries => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+entry.target.style.width = entry.target.classList.contains("html") ? "95%" :
+entry.target.classList.contains("css") ? "90%" :
+entry.target.classList.contains("js") ? "80%" :
+entry.target.classList.contains("linux") ? "70%" :
+entry.target.classList.contains("db") ? "75%" : "50%";
+
+}
+
+});
+
+});
+
+skills.forEach(skill => observer.observe(skill));

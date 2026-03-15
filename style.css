@@ -255,6 +255,48 @@ border-radius:10px;
 width:200px;
 transition:0.3s;
 }
+.skill{
+margin:20px auto;
+width:80%;
+max-width:500px;
+text-align:left;
+}
+
+.skill-bar{
+background:#1e293b;
+height:10px;
+border-radius:10px;
+overflow:hidden;
+}
+
+.skill-level{
+height:10px;
+background:#38bdf8;
+width:0;
+transition:width 1.5s ease;
+}
+
+/* skill percentages */
+
+.skill-level.html{
+width:95%;
+}
+
+.skill-level.css{
+width:90%;
+}
+
+.skill-level.js{
+width:80%;
+}
+
+.skill-level.linux{
+width:70%;
+}
+
+.skill-level.db{
+width:75%;
+}
 
 .skill-card:hover{
 transform:translateY(-10px);
