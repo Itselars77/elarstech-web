@@ -65,3 +65,27 @@ typeSpeed: 80,
 backSpeed: 40,
 loop: true
 });
+const repoContainer = document.getElementById("repo-container");
+
+fetch("https://api.github.com/users/Itselars77/repos")
+.then(response => response.json())
+.then(data => {
+
+repoContainer.innerHTML = "";
+
+data.slice(0,6).forEach(repo => {
+
+const repoCard = document.createElement("div");
+repoCard.classList.add("repo-card");
+
+repoCard.innerHTML = `
+<h3>${repo.name}</h3>
+<p>${repo.description || "No description available."}</p>
+<a href="${repo.html_url}" target="_blank">View Repo</a>
+`;
+
+repoContainer.appendChild(repoCard);
+
+});
+
+});

@@ -356,3 +356,40 @@ border-radius:5px;
 text-decoration:none;
 font-weight:bold;
 }
+
+.github{
+text-align:center;
+margin-top:120px;
+}
+
+.repo-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+
+.repo-card{
+background:#020617;
+padding:20px;
+border-radius:10px;
+width:260px;
+transition:0.3s;
+}
+
+.repo-card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+.repo-card a{
+display:inline-block;
+margin-top:10px;
+padding:8px 15px;
+background:#38bdf8;
+color:black;
+text-decoration:none;
+border-radius:5px;
+font-weight:bold;
+}
