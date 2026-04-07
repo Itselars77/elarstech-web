@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "scripts": {
+<<<<<<< HEAD
       "start": "node server.js"
     }
+=======
+  "start": "node server.js"
+}
+>>>>>>> a1b767f02091326c6a9d0ddcd53aaa81ca5bda05
   },
   "keywords": [],
   "author": "",
