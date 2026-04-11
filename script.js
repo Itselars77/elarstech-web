@@ -155,3 +155,34 @@ if (skills.length > 0) {
 
     skills.forEach(skill => skillObserver.observe(skill));
 }
+const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+
+        try {
+            const response = await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            });
+
+            if (response.ok) {
+                formStatus.textContent = "✅ Message sent successfully!";
+                formStatus.style.color = "#38bdf8";
+                contactForm.reset();
+            } else {
+                formStatus.textContent = "❌ Failed to send message.";
+                formStatus.style.color = "red";
+            }
+
+        } catch (error) {
+            formStatus.textContent = "⚠️ Something went wrong. Try again.";
+            formStatus.style.color = "orange";
+        }
+    });
+}

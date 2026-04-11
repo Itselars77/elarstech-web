@@ -156,12 +156,10 @@
 <section id="contact" class="contact">
     <h2 class="section-title">Contact</h2>
 
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
 
-        <!-- REQUIRED hidden input -->
         <input type="hidden" name="form-name" value="contact">
 
-        <!-- Anti-spam -->
         <p style="display:none;">
             <label>Don’t fill this if you're human: <input name="bot-field"></label>
         </p>
@@ -171,6 +169,9 @@
         <textarea name="message" placeholder="Your Message" required></textarea>
 
         <button type="submit">Send Message</button>
+
+        <!-- Status message -->
+        <p id="form-status"></p>
     </form>
 </section>
 
