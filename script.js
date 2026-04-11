@@ -7,7 +7,6 @@ const repoContainer = document.getElementById("repo-container");
 const skills = document.querySelectorAll(".skill-level");
 
 /* SIDEBAR */
-
 if (menu && sidebar && overlay) {
     menu.addEventListener("click", () => {
         sidebar.classList.toggle("active");
@@ -28,7 +27,6 @@ if (menu && sidebar && overlay) {
 }
 
 /* PARTICLES */
-
 if (window.tsParticles) {
     tsParticles.load("particles", {
         particles: {
@@ -46,17 +44,15 @@ if (window.tsParticles) {
             size: { value: 3 }
         },
         background: { color: "transparent" }
-    });
+    }).catch(err => console.error("Particles error:", err));
 }
 
 /* SCROLL REVEAL */
-
 function revealSections() {
     const trigger = window.innerHeight * 0.85;
 
     sections.forEach(section => {
         const top = section.getBoundingClientRect().top;
-
         if (top < trigger) {
             section.classList.add("show");
         }
@@ -67,27 +63,36 @@ window.addEventListener("scroll", revealSections);
 window.addEventListener("load", revealSections);
 
 /* TYPING EFFECT */
-
-if (window.Typed) {
-    new Typed(".typing", {
-        strings: [
-            "Web Developer",
-            "Linux Enthusiast",
-            "Problem Solver",
-            "Future Tech Entrepreneur 🚀"
-        ],
-        typeSpeed: 80,
-        backSpeed: 40,
-        loop: true
-    });
-}
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.Typed && document.querySelector(".typing")) {
+        new Typed(".typing", {
+            strings: [
+                "Web Developer",
+                "Linux Enthusiast",
+                "Problem Solver",
+                "Future Tech Entrepreneur 🚀"
+            ],
+            typeSpeed: 80,
+            backSpeed: 40,
+            loop: true
+        });
+    } else {
+        const typingEl = document.querySelector(".typing");
+        if (typingEl) {
+            typingEl.textContent = "Web Developer";
+        }
+    }
+});
 
 /* GITHUB REPOSITORIES */
-
 if (repoContainer) {
+    repoContainer.innerHTML = "<p>Loading repositories...</p>";
+
     fetch("https://api.github.com/users/Itselars77/repos")
         .then(response => {
-            if (!response.ok) throw new Error("Failed to fetch repositories");
+            if (!response.ok) {
+                throw new Error(`Failed to fetch repositories: ${response.status}`);
+            }
             return response.json();
         })
         .then(data => {
@@ -109,8 +114,18 @@ if (repoContainer) {
 
                 repoContainer.appendChild(repoCard);
             });
+
+            if (repos.length === 0) {
+                repoContainer.innerHTML = `
+                    <div class="card">
+                        <h3>No Repositories Found</h3>
+                        <p>Your GitHub account has no public repositories yet.</p>
+                    </div>
+                `;
+            }
         })
-        .catch(() => {
+        .catch(error => {
+            console.error("GitHub fetch error:", error);
             repoContainer.innerHTML = `
                 <div class="card">
                     <h3>GitHub Repositories</h3>
@@ -121,21 +136,22 @@ if (repoContainer) {
 }
 
 /* SKILL BAR ANIMATION */
+if (skills.length > 0) {
+    const skillObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.width =
+                    entry.target.classList.contains("html") ? "95%" :
+                        entry.target.classList.contains("css") ? "90%" :
+                            entry.target.classList.contains("js") ? "80%" :
+                                entry.target.classList.contains("linux") ? "70%" :
+                                    entry.target.classList.contains("db") ? "75%" :
+                                        "50%";
 
-const skillObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.width =
-                entry.target.classList.contains("html") ? "95%" :
-                    entry.target.classList.contains("css") ? "90%" :
-                        entry.target.classList.contains("js") ? "80%" :
-                            entry.target.classList.contains("linux") ? "70%" :
-                                entry.target.classList.contains("db") ? "75%" :
-                                    "50%";
+                skillObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
 
-            skillObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.4 });
-
-skills.forEach(skill => skillObserver.observe(skill));
+    skills.forEach(skill => skillObserver.observe(skill));
+}

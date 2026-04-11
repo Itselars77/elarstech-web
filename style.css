@@ -329,6 +329,9 @@ section.show {
     font-weight: bold;
 }
 
+.hero p {
+    font-size: 1.2rem;
+}
 /* MOBILE */
 
 @media (max-width: 768px) {
